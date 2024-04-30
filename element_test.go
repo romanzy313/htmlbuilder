@@ -6,20 +6,14 @@ import (
 	"testing"
 )
 
-// includes every single thing in one test
 func TestSmoke(t *testing.T) {
-
 	div := Div().Class("container").Class("another").Text("yaar").Children(
 		Div().Text("Hello, world!"),
 		Textf("Hello, world %s", "again"),
 	)
-
 	res := div.String()
-	// t.Logf("Result: %s", res)
 
 	expected := `<div class="container another">yaar<div>Hello, world!</div>Hello, world again</div>`
-
-	// t.Errorf("Expected <div><div>Hello, world!</div></div>, got %s", res)
 
 	if res != expected {
 		t.Errorf("Expected %s, got %s", expected, res)
